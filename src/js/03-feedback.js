@@ -10,6 +10,7 @@ savedFormData();
 function onInputData(event) {
   data[event.target.name] = event.target.value;
   localStorage.setItem(KEY_DATA, JSON.stringify(data));
+  // console.log(data);
   
 }
 function savedFormData() {
@@ -17,9 +18,8 @@ function savedFormData() {
   if (saveData) {
     const inputEl = inputDataForm.querySelector('input');
     const textareaEl = inputDataForm.querySelector('textarea');
-    inputEl.value = saveData.email ? saveData.email : '';
-    
-    textareaEl.value = saveData.message ? saveData.message : '';
+    inputEl.value = saveData.email ?? '';
+    textareaEl.value = saveData.message ??'';
     data.email = saveData.email;
     data.message = saveData.message;
   }
@@ -28,6 +28,7 @@ function savedFormData() {
 function formSubmit(event) {
   event.preventDefault();
   if (data.email && data.message) {
+    console.log(data);
     data.email = '';
     data.message = '';
     event.currentTarget.reset();
