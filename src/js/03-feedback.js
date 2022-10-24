@@ -1,7 +1,7 @@
 import throttle from 'throttleit';
 
 const inputDataForm = document.querySelector('.feedback-form');
-inputDataForm.addEventListener('input', throttle(onInputData, 500));
+inputDataForm.addEventListener('input', throttle(onInputData, 1000));
 inputDataForm.addEventListener('submit', formSubmit);
 
 const KEY_DATA = 'feedback-form-state';
